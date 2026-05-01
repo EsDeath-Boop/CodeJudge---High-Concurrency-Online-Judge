@@ -1,4 +1,4 @@
-# CodeJudge 🏆
+# CodeJudge 
 
 High-concurrency online judge with full React frontend, competitive programming problems, and real-time verdicts.
 
