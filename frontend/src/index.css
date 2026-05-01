@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #0a0a0f;
+  color: #e0e0f0;
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #111118; }
+::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00ff8844; }
+
+/* Monaco editor override */
+.monaco-editor { border-radius: 8px; overflow: hidden; }
+
+/* Verdict badge glow */
+.verdict-ac   { color: #00ff88; text-shadow: 0 0 12px #00ff8866; }
+.verdict-wa   { color: #ff4455; text-shadow: 0 0 12px #ff445566; }
+.verdict-tle  { color: #ffaa00; text-shadow: 0 0 12px #ffaa0066; }
+.verdict-mle  { color: #ff8800; text-shadow: 0 0 12px #ff880066; }
+.verdict-ce   { color: #aa88ff; text-shadow: 0 0 12px #aa88ff66; }
+.verdict-re   { color: #ff6688; text-shadow: 0 0 12px #ff668866; }
+
+/* Scan line effect on nav */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,255,136,0.015) 2px, rgba(0,255,136,0.015) 4px
+  );
+  pointer-events: none;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-judge-accent text-judge-bg font-display text-sm font-bold px-5 py-2.5 rounded
+           hover:brightness-110 active:scale-95 transition-all duration-150;
+  }
+  .btn-ghost {
+    @apply border border-judge-border text-judge-subtext text-sm px-5 py-2.5 rounded
+           hover:border-judge-accent hover:text-judge-accent transition-all duration-150;
+  }
+  .card {
+    @apply bg-judge-surface border border-judge-border rounded-lg;
+  }
+  .tag-easy   { @apply text-xs font-display px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800; }
+  .tag-medium { @apply text-xs font-display px-2 py-0.5 rounded bg-yellow-950  text-yellow-400  border border-yellow-800; }
+  .tag-hard   { @apply text-xs font-display px-2 py-0.5 rounded bg-red-950     text-red-400     border border-red-800; }
+}
